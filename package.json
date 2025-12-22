@@ -8,6 +8,7 @@
     "ci": "npm test && npm run typecheck && npm run package",
     "package": "npm run build && node scripts/package.mjs",
     "dev:invoke": "npm run build && node --enable-source-maps local/local-invoke.js",
+    "dev:server": "npm run build && node --enable-source-maps local/server.js",
     "lint": "echo \"(optional) add eslint later\"",
     "test": "node --test",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"

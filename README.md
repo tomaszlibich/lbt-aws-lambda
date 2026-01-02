@@ -2,20 +2,13 @@
 
 A configurable NodeJS based AWS Lambda template
 
-## Local run
+# local environment
 
-```bash
-npm i
-npm run build
-node dist/local/local-invoke.js
-```
+On the local environment, a helper ExpressJS driven proxy app is running to route and point at the respective lambdas.
+To run it, simply invoke `npm start` from the root folder.
 
-# CI run in Github Actions from master branch only
+All ENV variables should be set in .env file.
 
-```bash
-npm run ci
-```
+# Production deployment
 
-This invokes `npm test && npm run typecheck && npm run package` under the hood.
-
-## PLEASE NOTE: currently the AWS IAM Role is configured in a way that it works on repos starting with lbt- prefix only
+The Lambda functions are running in AWS and they are pointed at via Cloudfront distribution URLs. To deploy it, simply go to the respective lambda folder, `npm i` to ensure that an updated `node_modules` is there and archive it to zip. Then in the AWS console, find the pre-configured lambda and upload the zip file.
